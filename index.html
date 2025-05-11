@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Mohammed Lalani</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased"> <div class="custom-cursor"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold transition-colors">Ali Mohammed Lalani.</a>
+            <div class="flex items-center space-x-4 md:space-x-6">
+                <ul class="hidden md:flex space-x-6">
+                    <li><a href="#hero" class="animated-icon">Home</a></li>
+                    <li><a href="#about" class="animated-icon">About</a></li>
+                    <li><a href="#gallery" class="animated-icon">Designs</a></li>
+                    <li><a href="#contact" class="animated-icon">Contact</a></li>
+                </ul>
+                <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i> </button>
+                </div>
+        </nav>
+    </header>
+
+    <section id="hero" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[var(--bg-primary)] via-purple-900/10 to-pink-900/10 pt-20 md:pt-16">
+        <div class="text-center px-6">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4" style="color: var(--text-primary);">
+                Hi, I'm <span style="color: var(--accent-color);">Ali Mohammed Lalani</span>
+            </h1>
+            <div class="typewriter-container text-xl md:text-3xl mb-8" style="color: var(--text-secondary);">
+                I'm a&nbsp;<span id="typewriter" class="typewriter-text initial-anim">Web Developer.</span>
+            </div>
+            <a href="#gallery" class="primary-button font-semibold py-3 px-8 rounded-lg text-lg shadow-lg">
+                View My Work
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 md:py-20 px-6 fade-in-section">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="section-heading">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div class="rounded-lg overflow-hidden shadow-2xl border border-[var(--border-color)]">
+                    <img src="/assets/WhatsApp Image 2025-04-04 at 11.33.29_892de181.jpg" alt="Your Name" class="w-full h-auto object-cover">
+                </div>
+                <div>
+                    <p class="text-lg mb-4 leading-relaxed" style="color: var(--text-secondary);">
+                        I'm a 2nd-year CSE (AI) student at MJCET, Hyderabad, skilled in frontend web development and passionate about graphic design, I served as Design Head at ACM MJCET. I enjoy blending creativity with tech to build responsive websites and impactful projects, always eager to learn and grow as a developer and designer
+                    </p>
+                        
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/ali-mohammed-lalani" class="animated-icon text-3xl" style="color: var(--accent-color);"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/alimohammedlalani" class="animated-icon text-3xl" style="color: var(--accent-color);"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/ali_mohammed_lalani?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="animated-icon text-3xl" style="color: var(--accent-color);"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-16 md:py-20 px-6 fade-in-section" style="background-color: var(--bg-secondary);">
+        <div class="container mx-auto">
+            <h2 class="section-heading">My Designs</h2>
+            <div class="insta-gallery-grid">
+                <div class="insta-gallery-item" data-title="Awesome App UI" data-description="A sleek and modern user interface for a mobile application. Built with user experience in mind, focusing on intuitive navigation and clean aesthetics.">
+                    <img src="assets/1.png" alt="Design Project 1">
+                </div>
+                <div class="insta-gallery-item" data-title="Branding Identity" data-description="Complete branding package for 'Innovatech Solutions', including logo design, color palette, typography, and a comprehensive style guide.">
+                    <img src="assets/2.png" alt="Design Project 2">
+                </div>
+                <div class="insta-gallery-item" data-title="E-commerce Redesign" data-description="A modern and responsive redesign for 'The Green Cart' e-commerce website, focusing on improved product visibility and a streamlined checkout process.">
+                    <img src="assets/A4 - 1 (1).png" alt="Design Project 3">
+                </div>
+                <div class="insta-gallery-item" data-title="Illustration Set" data-description="A series of custom vector illustrations for a 'Tech Conference 2025' marketing campaign, used across web and print materials.">
+                    <img src="assets/Music (1).png" alt="Design Project 4">
+                </div>
+                 <div class="insta-gallery-item" data-title="Packaging Design" data-description="Creative and eco-friendly packaging design for 'Aura Organic Skincare', emphasizing natural ingredients and brand values.">
+                    <img src="assets/Music (2).png" alt="Design Project 5">
+                </div>
+                 <div class="insta-gallery-item" data-title="Social Media Campaign" data-description="Engaging graphics and short animations for 'FitLife Gym' social media platforms, aiming to boost engagement and membership sign-ups.">
+                    <img src="assets/Trials of Triumph.png" alt="Design Project 6">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="galleryModal" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <span class="gallery-modal-close" id="galleryModalClose">&times;</span>
+            <img id="modalImage" src="" alt="Selected Design" class="gallery-modal-image">
+            <h3 id="modalTitle" class="gallery-modal-title"></h3>
+            <p id="modalDescription" class="gallery-modal-description"></p>
+        </div>
+    </div>
+
+
+    <section id="contact" class="py-16 md:py-20 px-6 fade-in-section" style="background-color: var(--bg-secondary);">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="section-heading">Get In Touch</h2>
+            <p class="text-center mb-10" style="color: var(--text-secondary);">
+                Have a project in mind or just want to say hi? Feel free to reach out!
+            </p>
+            <form action="#" method="POST" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium">Full Name</label>
+                    <input type="text" name="name" id="name" autocomplete="name" class="mt-1 block w-full px-4 py-3 rounded-md shadow-sm focus:ring-[var(--accent-color)] focus:border-[var(--accent-color)] placeholder-[var(--text-secondary)]">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium">Email Address</label>
+                    <input type="email" name="email" id="email" autocomplete="email" class="mt-1 block w-full px-4 py-3 rounded-md shadow-sm focus:ring-[var(--accent-color)] focus:border-[var(--accent-color)] placeholder-[var(--text-secondary)]">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium">Message</label>
+                    <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-3 rounded-md shadow-sm focus:ring-[var(--accent-color)] focus:border-[var(--accent-color)] placeholder-[var(--text-secondary)]"></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="primary-button w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--accent-color)] focus:ring-offset-[var(--bg-secondary)]">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center" style="background-color: var(--bg-primary); border-top: 1px solid var(--border-color);">
+        <p style="color: var(--text-secondary);">&copy; <span id="currentYear"></span> Ali Mohammed Lalani. All rights reserved.</p>
+        <p class="text-sm" style="color: var(--text-secondary);">Designed with <i class="fas fa-heart" style="color: var(--accent-color);"></i> and creativity.</p>
+    </footer>
+
+    <button id="scrollTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
