@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.addEventListener('mouseup', () => cursor.classList.remove('click-effect'));
 
             if (typewriterElement) {
-                const words = ["Web Developer.", "Graphic Designer.", "Creative Thinker."];
+                const words = ["Web Developer", "Graphic Designer", "Creative Thinker"];
                 let wordIndex = 0;
                 let charIndex = 0;
                 let currentWord = "";
