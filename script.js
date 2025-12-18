@@ -1,168 +1,106 @@
-document.addEventListener('DOMContentLoaded', function() {
-            const body = document.body;
-            const cursor = document.querySelector('.custom-cursor');
-            const linksAndButtons = document.querySelectorAll('a, button, .insta-gallery-item, .reel-item-vertical, input, textarea');
-            const themeToggleBtn = document.getElementById('themeToggleBtn');
-            const themeIcon = themeToggleBtn.querySelector('i');
-            const typewriterElement = document.getElementById('typewriter');
-            const scrollTopBtn = document.getElementById('scrollTopBtn');
+        // 1. Navigation Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+        // 2. Typewriter Effect
+        const lines = [
+            "> Computer Science & AI Undergraduate",
+            "> Aspiring Software Developer",
+  "> AI Enthusiast & Problem Solver"
+];
 
-            function applyTheme(theme) {
-                if (theme === 'dark') {
-                    body.classList.add('dark-mode');
-                    body.classList.remove('light-mode');
-                    themeIcon.classList.remove('fa-sun');
-                    themeIcon.classList.add('fa-moon');
-                } else {
-                    body.classList.add('light-mode');
-                    body.classList.remove('dark-mode');
-                    themeIcon.classList.remove('fa-moon');
-                    themeIcon.classList.add('fa-sun');
-                }
-            }
+    const el = document.getElementById("typewriter");
 
-            const savedTheme = localStorage.getItem('portfolioTheme') || 'dark';
-            applyTheme(savedTheme);
+let lineIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-            themeToggleBtn.addEventListener('click', () => {
-                const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                applyTheme(newTheme);
-                localStorage.setItem('portfolioTheme', newTheme);
-            });
+function typeEffect() {
+  const currentLine = lines[lineIndex];
 
-            document.addEventListener('mousemove', e => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
-            });
+  if (!isDeleting) {
+    // Typing
+    el.textContent = currentLine.substring(0, charIndex + 1);
+    charIndex++;
 
-            linksAndButtons.forEach(el => {
-                el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
-                el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
-            });
-            document.addEventListener('mousedown', () => cursor.classList.add('click-effect'));
-            document.addEventListener('mouseup', () => cursor.classList.remove('click-effect'));
+    if (charIndex === currentLine.length) {
+      setTimeout(() => (isDeleting = true), 1000); // pause after typing
+    }
+  } else {
+    // Deleting
+    el.textContent = currentLine.substring(0, charIndex - 1);
+    charIndex--;
 
-            if (typewriterElement) {
-                const words = ["Web Developer", "Graphic Designer", "Creative Thinker"];
-                let wordIndex = 0;
-                let charIndex = 0;
-                let currentWord = "";
-                let isDeleting = false;
+    if (charIndex === 0) {
+      isDeleting = false;
+      lineIndex = (lineIndex + 1) % lines.length; // loop
+    }
+  }
 
-                typewriterElement.classList.remove('initial-anim');
-                typewriterElement.style.animation = 'none'; 
-                typewriterElement.style.borderRight = '.15em solid var(--accent-color)';
-                typewriterElement.style.width = 'auto'; 
+  const speed = isDeleting ? 30 : 50;
+  setTimeout(typeEffect, speed);
+}
 
-                function type() {
-                    currentWord = words[wordIndex];
-                    typewriterElement.style.borderRightColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim();
+// start
+typeEffect();
 
 
-                    if (isDeleting) {
-                        typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
-                        charIndex--;
-                    } else {
-                        typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
-                        charIndex++;
-                    }
-
-                    if (!isDeleting && charIndex === currentWord.length) {
-                        setTimeout(() => isDeleting = true, 1800);
-                    } else if (isDeleting && charIndex === 0) {
-                        isDeleting = false;
-                        wordIndex = (wordIndex + 1) % words.length;
-                    }
-
-                    let typeSpeed = isDeleting ? 60 : 120;
-                    if (!isDeleting && charIndex === currentWord.length) {
-                        typeSpeed = 1800;
-                    }
-                    setTimeout(type, typeSpeed);
-                }
-                setTimeout(type, 300); 
-            }
-            document.querySelectorAll('header nav a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const headerOffset = document.querySelector('header').offsetHeight || 60;
-                        const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                    }
-                });
-            });
-
-            window.onscroll = function() {
-                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                    scrollTopBtn.style.display = "flex";
-                    setTimeout(() => scrollTopBtn.style.opacity = "1", 10);
-                } else {
-                    scrollTopBtn.style.opacity = "0";
-                    setTimeout(() => scrollTopBtn.style.display = "none", 300);
-                }
-            };
-            scrollTopBtn.addEventListener('click', () => {
-                window.scrollTo({top: 0, behavior: 'smooth'});
-            });
-
-            const sections = document.querySelectorAll('.fade-in-section');
-            const sectionObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { rootMargin: "0px 0px -100px 0px" });
-            sections.forEach(section => sectionObserver.observe(section));
-
-            document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-            const galleryItems = document.querySelectorAll('.insta-gallery-item');
-            const modal = document.getElementById('galleryModal');
-            const modalImage = document.getElementById('modalImage');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalDescription = document.getElementById('modalDescription');
-            const closeModalBtn = document.getElementById('galleryModalClose');
-
-            galleryItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    modalImage.src = item.querySelector('img').src;
-                    modalImage.alt = item.querySelector('img').alt;
-                    modalTitle.textContent = item.dataset.title;
-                    modalDescription.textContent = item.dataset.description;
-                    modal.classList.add('active');
-                });
-            });
-
-            function closeModal() {
-                modal.classList.remove('active');
-            }
-            closeModalBtn.addEventListener('click', closeModal);
-            modal.addEventListener('click', (e) => { 
-                if (e.target === modal) {
-                    closeModal();
+        // 3. Scroll Reveal Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
                 }
             });
-            document.addEventListener('keydown', (e) => { 
-                if (e.key === "Escape" && modal.classList.contains('active')) {
-                    closeModal();
-                }
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // 4. 3D Tilt Effect for Project Cards (Vanilla JS)
+        const cards = document.querySelectorAll('.tilt-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -5; // Max rotation deg
+                const rotateY = ((x - centerX) / centerX) * 5;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
             });
 
-            const reelVideos = document.querySelectorAll('.reels-container-vertical video');
-            reelVideos.forEach(video => {
-                video.addEventListener('play', () => {
-                    reelVideos.forEach(otherVideo => {
-                        if (otherVideo !== video) {
-                            otherVideo.pause();
-                        }
-                      });
-                });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
             });
         });
+
+        // 5. Modal Logic
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('open'), 10); // Slight delay for transition
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('open');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300); // Wait for transition
+        }
+        
+        // Close on outside click
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                closeModal(event.target.id);
+            }
+        }

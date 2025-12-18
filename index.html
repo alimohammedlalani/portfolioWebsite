@@ -3,140 +3,338 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Mohammed Lalani</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>Ali Mohammed Lalani | AI & CS Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="antialiased"> <div class="custom-cursor"></div>
+<body>
 
-    <header class="fixed top-0 left-0 right-0 z-50 shadow-lg">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#hero" class="text-2xl font-bold transition-colors">Ali Mohammed Lalani</a>
-            <div class="flex items-center space-x-4 md:space-x-6">
-                <ul class="hidden md:flex space-x-6">
-                    <li><a href="#hero" class="animated-icon">Home</a></li>
-                    <li><a href="#about" class="animated-icon">About</a></li>
-                    <li><a href="#gallery" class="animated-icon">Designs</a></li>
-                    <li><a href="#contact" class="animated-icon">Contact</a></li>
-                </ul>
-                <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle theme">
-                    <i class="fas fa-sun"></i> </button>
+    <div class="background-fx">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav id="navbar">
+        <div class="container nav-wrapper">
+            <div class="logo"><span class="gradient-text">Ali Mohammed Lalani</span></div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <section id="about">
+        <div class="container" id="hero">
+            <div class="hero-content reveal">
+                <span class="mono hero-subtitle">Hello, I am</span>
+                <h1 class="gradient-text">Ali Mohammed Lalani</h1>
+                <span class="typewriter" id="typewriter"></span>
+                <p class="hero-description">
+                    I am a 3rd-year CSE(AI) student passionate about building impactful products. 
+                    Merging software development with Artificial Intelligence to create next-gen solutions.
+                </p>
+                
+                <div class="cta-group">
+                    <a href="#projects" class="btn btn-primary">View Work</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
                 </div>
-        </nav>
-    </header>
 
-    <section id="hero" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[var(--bg-primary)] via-purple-900/10 to-pink-900/10 pt-20 md:pt-16">
-        <div class="text-center px-6">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4" style="color: var(--text-primary);">
-                Hi, I'm <span style="color: var(--accent-color);">Ali Mohammed Lalani</span>
-            </h1>
-            <div class="typewriter-container text-xl md:text-3xl mb-8" style="color: var(--text-secondary);">
-                I'm a&nbsp;<span id="typewriter" class="typewriter-text initial-anim">Web Developer.</span>
+                <div class="social-bar">
+                    <a href="https://github.com/alimohammedlalani" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ali-mohammed-lalani/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:alimohammedlalanis@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
-            <a href="#gallery" class="primary-button font-semibold py-3 px-8 rounded-lg text-lg shadow-lg">
-                View My Work
-            </a>
         </div>
     </section>
 
-    <section id="about" class="py-16 md:py-20 px-6 fade-in-section">
-        <div class="container mx-auto max-w-4xl">
-            <h2 class="section-heading">About Me</h2>
-            <div class="grid md:grid-cols-2 gap-10 items-center">
-                <div class="rounded-lg overflow-hidden shadow-2xl border border-[var(--border-color)]">
-                    <img src="/assets/WhatsApp Image 2025-04-04 at 11.33.29_892de181.jpg" alt="Your Name" class="w-full h-auto object-cover">
+    <section id="education" class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="gradient-text">Education</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="timeline">
+                
+                <div class="timeline-item reveal delay-100">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-panel edu-card">
+                        <span class="mono">2023 – 2027</span>
+                        <h3>Bachelor of Engineering (CSAI)</h3>
+                        <p style="color: var(--accent-cyan); margin-bottom: 5px;">Muffakham Jah College of Engineering</p>
+                        <p style="color: var(--text-secondary);">Current CGPA: 7.51</p>
+                    </div>
                 </div>
-                <div>
-                    <p class="text-lg mb-4 leading-relaxed" style="color: var(--text-secondary);">
-                        I'm a 2nd-year CSE (AI) student at MJCET, Hyderabad, skilled in frontend web development and passionate about graphic design, I served as Design Head at ACM MJCET. I enjoy blending creativity with tech to build responsive websites and impactful projects, always eager to learn and grow as a developer and designer
-                    </p>
-                        
-                    <div class="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/ali-mohammed-lalani" class="animated-icon text-3xl" style="color: var(--accent-color);"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/alimohammedlalani" class="animated-icon text-3xl" style="color: var(--accent-color);"><i class="fab fa-github"></i></a>
-                        <a href="https://www.instagram.com/ali_mohammed_lalani?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="animated-icon text-3xl" style="color: var(--accent-color);"><i class="fab fa-instagram"></i></a>
+                <div class="timeline-item reveal delay-200">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-panel edu-card">
+                        <span class="mono">2021 – 2023</span>
+                        <h3>Intermediate</h3>
+                        <p style="color: var(--accent-cyan); margin-bottom: 5px;">Sri Chaitanya Junior College</p>
+                        <p style="color: var(--text-secondary);">Percentage: 80.3%</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal delay-200">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-panel edu-card">
+                        <span class="mono">2009 – 2021</span>
+                        <h3>SSC</h3>
+                        <p style="color: var(--accent-cyan); margin-bottom: 5px;">St. Josephs Convent High School, Adilabad</p>
+                        <p style="color: var(--text-secondary);">CGPA: 9.7</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="gallery" class="py-16 md:py-20 px-6 fade-in-section" style="background-color: var(--bg-secondary);">
-        <div class="container mx-auto">
-            <h2 class="section-heading">My Designs</h2>
-            <div class="insta-gallery-grid">
-                <div class="insta-gallery-item" data-title="Awesome App UI" data-description="">
-                    <img src="assets/1.png" alt="Design Project 1">
+    <section id="skills" class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="gradient-text">Skills</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="skills-container">
+                
+                <div class="glass-panel skill-card reveal delay-100">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span class="tag">C++</span>
+                        <span class="tag">C</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
                 </div>
-                <div class="insta-gallery-item" data-title="Branding Identity" data-description="">
-                    <img src="assets/2.png" alt="Design Project 2">
+
+                <div class="glass-panel skill-card reveal delay-300">
+                    <i class="fas fa-brain skill-icon"></i>
+                    <h3>Libraries</h3>
+                    <div class="skill-tags">
+                        <span class="tag">NumPy</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">Matplotlib</span>
+                        <span class="tag">Seaborn</span>
+                        <span class="tag">scikit-learn</span>
+                    </div>
                 </div>
-                <div class="insta-gallery-item" data-title="E-commerce Redesign" data-description="">
-                    <img src="assets/A4 - 1 (1).png" alt="Design Project 3">
+
+                <div class="glass-panel skill-card reveal delay-200">
+                    <i class="fas fa-layer-group skill-icon"></i>
+                    <h3>Frameworks & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="tag">GitHub</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">Canva</span>
+                        <span class="tag">VS Code</span>
+                    </div>
                 </div>
-                <div class="insta-gallery-item" data-title="Illustration Set" data-description="">
-                    <img src="assets/Music (1).png" alt="Design Project 4">
+
+                <div class="glass-panel skill-card reveal delay-300">
+                    <i class="fas fa-brain skill-icon"></i>
+                    <h3>Computer Science Fundamentals</h3>
+                    <div class="skill-tags">
+                        <span class="tag">OOPS</span>
+                        <span class="tag">OS</span>
+                        <span class="tag">DBMS</span>
+                        <span class="tag">DSA</span>
+                    </div>
                 </div>
-                 <div class="insta-gallery-item" data-title="Packaging Design" data-description="">
-                    <img src="assets/Music (2).png" alt="Design Project 5">
+                <div class="glass-panel skill-card reveal delay-300">
+                    <i class="fas fa-brain skill-icon"></i>
+                    <h3>Web Development</h3>
+                    <div class="skill-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Javascript</span>
+                        <span class="tag">Tailwind CSS</span>
+                        <span class="tag">React JS</span>
+                    </div>
                 </div>
-                 <div class="insta-gallery-item" data-title="Social Media Campaign" data-description="">
-                    <img src="assets/Trials of Triumph.png" alt="Design Project 6">
+
+                <div class="glass-panel skill-card reveal delay-100">
+                    <i class="fas fa-users skill-icon"></i>
+                    <h3>Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Leadership</span>
+                        <span class="tag">Problem Solving</span>
+                        <span class="tag">Communication</span>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <div id="galleryModal" class="gallery-modal">
-        <div class="gallery-modal-content">
-            <span class="gallery-modal-close" id="galleryModalClose">&times;</span>
-            <img id="modalImage" src="" alt="Selected Design" class="gallery-modal-image">
-            <h3 id="modalTitle" class="gallery-modal-title"></h3>
-            <p id="modalDescription" class="gallery-modal-description"></p>
-        </div>
-    </div>
+    <section id="experience" class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="gradient-text">Experience</h2>
+                <div class="line"></div>
+            </div>
 
+            <div class="glass-panel" style="padding: 30px; margin-bottom: 30px; border-left: 4px solid var(--accent-main);" class="reveal">
+                <div style="display:flex; justify-content:space-between; flex-wrap:wrap; margin-bottom:15px;">
+                    <h3>UI/UX Intern</h3>
+                    <span class="mono">HenceProve Pvt Ltd</span>
+                </div>
+                <ul style="color: var(--text-secondary); list-style: disc; margin-left: 20px;">
+                    <li>Contributed to the flagship product ExamSim</li>
+                    <li>Applied strong UI/UX design skills, creativity, and problem-solving</li>
+                    <li>Enhanced overall user experience through thoughtful design improvements.</li>
+                </ul>
+            </div>
 
-    <section id="contact" class="py-16 md:py-20 px-6 fade-in-section" style="background-color: var(--bg-secondary);">
-        <div class="container mx-auto max-w-3xl">
-            <h2 class="section-heading">Get In Touch</h2>
-            <p class="text-center mb-10" style="color: var(--text-secondary);">
-                Have a project in mind or just want to say hi? Feel free to reach out!
-            </p>
-            <form action="" method="POST" class="space-y-6">
-                <div>
-                    <label for="name" class="block text-sm font-medium">Full Name</label>
-                    <input type="text" name="name" id="name" autocomplete="name" class="mt-1 block w-full px-4 py-3 rounded-md shadow-sm focus:ring-[var(--accent-color)] focus:border-[var(--accent-color)] placeholder-[var(--text-secondary)]">
+            <div class="glass-panel" style="padding: 30px; border-left: 4px solid var(--accent-glow);" class="reveal delay-100">
+                <div style="display:flex; justify-content:space-between; flex-wrap:wrap; margin-bottom:15px;">
+                    <h3>Design Head</h3>
+                    <span class="mono">ACM MJCET (Student Chapter)</span>
                 </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium">Email Address</label>
-                    <input type="email" name="email" id="email" autocomplete="email" class="mt-1 block w-full px-4 py-3 rounded-md shadow-sm focus:ring-[var(--accent-color)] focus:border-[var(--accent-color)] placeholder-[var(--text-secondary)]">
-                </div>
-                <div>
-                    <label for="message" class="block text-sm font-medium">Message</label>
-                    <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-3 rounded-md shadow-sm focus:ring-[var(--accent-color)] focus:border-[var(--accent-color)] placeholder-[var(--text-secondary)]"></textarea>
-                </div>
-                <div>
-                    <button type="submit" class="primary-button w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--accent-color)] focus:ring-offset-[var(--bg-secondary)]">
-                        Send Message
-                    </button>
-                </div>
-            </form>
+                <ul style="color: var(--text-secondary); list-style: disc; margin-left: 20px;">
+                    <li>Lead the design team for events and branding.</li>
+                    <li>Coordinate with development and media teams.</li>
+                    <li>Strengthened leadership and task management skills.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center" style="background-color: var(--bg-primary); border-top: 1px solid var(--border-color);">
-        <p style="color: var(--text-secondary);">&copy; <span id="currentYear"></span> Ali Mohammed Lalani. All rights reserved.</p>
-        <p class="text-sm" style="color: var(--text-secondary);">Designed with <i class="fas fa-heart" style="color: var(--accent-color);"></i> and creativity.</p>
+    <section id="projects" class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="gradient-text">Featured Projects</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="projects-grid">
+                
+                <div class="project-card-wrapper reveal delay-100" onclick="openModal('modal1')">
+                    <div class="glass-panel project-card tilt-card">
+                        <div>
+                            <div class="project-top">
+                                <i class="far fa-folder folder-icon"></i>
+                                <div class="external-links">
+                                    <a href="https://github.com/alimohammedlalani/minute-learn" target="_blank"><i class="fab fa-github"></i></a>
+                                    <a href="https://minutelearn.netlify.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                            <h3>MinuteLearn</h3>
+                            <p>A micro-learning platform focused on short educational videos, interactive quizzes, and smooth user experience.</p>
+                        </div>
+                        <div class="tech-stack">
+                            <span>Javascript</span>
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card-wrapper reveal delay-200">
+                    <div class="glass-panel project-card tilt-card">
+                        <div>
+                            <div class="project-top">
+                                <i class="far fa-folder folder-icon"></i>
+                                <div class="external-links">
+                                    <a href="#"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <h3>Reel Virality Predictor</h3>
+                            <p>A machine learning model that predicts the virality of Instagram reels based on various features like hashtags, captions, and posting time.</p>
+                        </div>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>FastAPI</span>
+                            <span>Streamlit</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="modal1" class="modal-overlay">
+        <div class="glass-panel modal-box">
+            <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
+            <h2 class="gradient-text" style="margin-bottom: 15px;">MinuteLearn Details</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                Designed to help users upskill in short, productive sessions with integrated doubt-solving features. This project focuses on minimizing cognitive load while maximizing retention through micro-content.
+            </p>
+            <h4 style="color: white; margin-bottom: 10px;">Key Highlights:</h4>
+            <ul style="color: var(--text-secondary); margin-bottom: 25px; margin-left: 20px; list-style: disc;">
+                <li>Modern, responsive UI</li>
+                <li>Micro-learning focused UX</li>
+                <li>Built solo within 24 hours during a hackathon</li>
+            </ul>
+            <a href="https://minutelearn.netlify.app/" target="_blank" class="btn btn-primary" style="display:inline-block;">Live Demo</a>
+        </div>
+    </div>
+
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="gradient-text">Get In Touch</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="contact-container reveal">
+                
+                <div class="contact-info">
+                    <p style="color: var(--text-secondary); margin-bottom: 30px; font-size: 1.1rem;">
+                        I am currently looking for internship opportunities and open to collaborating on AI/CS projects.
+                    </p>
+                    
+                    <div class="contact-detail-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <span style="display:block; font-size: 0.8rem; color: var(--text-secondary);">Email</span>
+                            <span>alimohammedlalanis@gmail.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <span style="display:block; font-size: 0.8rem; color: var(--text-secondary);">Phone</span>
+                            <span>+91 9948456920</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="glass-panel form-box" style="padding: 30px;" onsubmit="event.preventDefault(); alert('Message sent!');">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Designed & Built by Ali Mohammed Lalani &copy; 2025</p>
+            <div class="social-bar" style="margin-top: 20px;">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
     </footer>
 
-    <button id="scrollTopBtn" title="Go to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
     <script src="script.js"></script>
-
 </body>
 </html>
