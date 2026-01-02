@@ -1,76 +1,82 @@
-#include <stdio.h>
+#Kmean
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import make_blobs
 
-void main()
-{
-    int n, i, q;
-    int x = 0, count = 0, temp;
-    int bt[10], temp_bt[10], tat[10], wt[10];
-    float twt = 0, ttat = 0;
+X, y = make_blobs(
+    n_samples=500,
+    n_features=2,
+    centers=3,
+    random_state=23
+)
 
-    system("clear");
+fig = plt.figure(0)
+plt.grid(True)
+plt.scatter(X[:, 0], X[:, 1])
+plt.show()
 
-    printf("***** RR (ROUND ROBIN) SCHEDULING ******\n");
+k = 3
+clusters = {}
+np.random.seed(23)
 
-    printf("\nEnter the number of processes : ");
-    scanf("%d", &n);
-
-    for (i = 0; i < n; i++)
-    {
-        printf("Enter the burst time of process %d : ", i);
-        scanf("%d", &bt[i]);
-        temp_bt[i] = bt[i];
+for idx in range(k):
+    center = 2 * (2 * np.random.random((X.shape[1],)) - 1)
+    cluster = {
+        "center": center,
+        "points": []
     }
+    clusters[idx] = cluster
 
-    printf("\nEnter the time quantum : ");
-    scanf("%d", &q);
+plt.scatter(X[:, 0], X[:, 1])
+plt.grid(True)
+for i in clusters:
+    center = clusters[i]["center"]
+    plt.scatter(center[0], center[1], marker="*", c="red")
+plt.show()
 
-    while (1)
-    {
-        for (i = 0; i < n; i++)
-        {
-            temp = q;
+def distance(p1, p2):
+    return np.sqrt(np.sum((p1 - p2) ** 2))
 
-            if (temp_bt[i] == 0)
-            {
-                count++;
-                continue;
-            }
+def assign_clusters(X, clusters):
+    for idx in range(X.shape[0]):
+        dist = []
+        curr_x = X[idx]
 
-            if (temp_bt[i] > q)
-            {
-                temp_bt[i] = temp_bt[i] - q;
-            }
-            else if (temp_bt[i] >= 0)
-            {
-                temp = temp_bt[i];
-                temp_bt[i] = 0;
-            }
+        for i in range(k):
+            dis = distance(curr_x, clusters[i]["center"])
+            dist.append(dis)
 
-            x = x + temp;
-            tat[i] = x;
-        }
+        curr_cluster = np.argmin(dist)
+        clusters[curr_cluster]["points"].append(curr_x)
 
-        if (n == count)
-            break;
-    }
+    return clusters
 
-    for (i = 0; i < n; i++)
-    {
-        wt[i] = tat[i] - bt[i];
-        twt = twt + wt[i];
-        ttat = ttat + tat[i];
-    }
+def update_clusters(X, clusters):
+    for i in range(k):
+        points = np.array(clusters[i]["points"])
+        if points.shape[0] > 0:
+            new_center = points.mean(axis=0)
+            clusters[i]["center"] = new_center
 
-    printf("\nProcess\t|Burst Time\t|Wait Time\t|Turn-Around Time");
+        clusters[i]["points"] = []
 
-    for (i = 0; i < n; i++)
-    {
-        printf("\n%d\t|%d\t\t|%d\t\t|%d", i, bt[i], wt[i], tat[i]);
-    }
+    return clusters
 
-    printf("\n\nTotal waiting time is %f", twt);
-    printf("\nAverage waiting time is %f", twt / n);
+def pred_cluster(X, clusters):
+    pred = []
+    for i in range(X.shape[0]):
+        dist = []
+        for j in range(k):
+            dist.append(distance(X[i], clusters[j]["center"]))
+        pred.append(np.argmin(dist))
+    return pred
 
-    printf("\n\nTotal turn around time is %f", ttat);
-    printf("\nAverage turn around time is %f\n\n", ttat / n);
-}
+clusters = assign_clusters(X, clusters)
+clusters = update_clusters(X, clusters)
+pred = pred_cluster(X, clusters)
+
+plt.scatter(X[:, 0], X[:, 1], c=pred)
+for i in clusters:
+    center = clusters[i]["center"]
+    plt.scatter(center[0], center[1], marker="^", c="red")
+plt.show()
